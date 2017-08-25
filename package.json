@@ -14,7 +14,7 @@
     "server": "node server.js",
     "client": "node start-client.js",
     "lint": "eslint .",
-    "start": "cd client && npm run build && cd .. && node server.js"
+    "start": "cd client && npm run build && cd .. && nodemon server.js"
   },
   "repository": {
     "type": "git",
