@@ -10,12 +10,11 @@
     "sql.js": "0.3.2"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node server.js",
     "client": "node start-client.js",
-    "dev": "echo \"This command has been deprecated. Use 'npm start'\" && exit 1",
     "lint": "eslint .",
-    "prod": "cd client && npm run build && cd .. && node server.js"
+    "start": "cd client && npm run build && cd .. && node server.js"
   },
   "repository": {
     "type": "git",
