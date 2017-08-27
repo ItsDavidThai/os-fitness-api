@@ -8,6 +8,7 @@
     "express": "4.13.3",
     "fs": "0.0.2",
     "google-cloud": "^0.56.0",
+    "pg": "^7.2.0",
     "sql.js": "0.3.2"
   },
   "scripts": {
@@ -15,7 +16,7 @@
     "server": "node server.js",
     "client": "node start-client.js",
     "lint": "eslint .",
-    "start": "cd client && npm run build && cd .. && nodemon server.js"
+    "start": "cd client && npm i && npm run build && cd .. && nodemon server.js"
   },
   "repository": {
     "type": "git",
