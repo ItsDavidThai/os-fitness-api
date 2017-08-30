@@ -1,9 +1,16 @@
 const express = require("express");
+const bodyParser = require('body-parser')
 
 const app = express();
 
 app.set("port", process.env.PORT || 8080);
 app.set("api-port", process.env.APIPORT || 3005);
+
+// create application/json parser
+var jsonParser = bodyParser.json()
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // Express only serves static assets in production
 // if (process.env.NODE_ENV === "production") {
@@ -22,10 +29,12 @@ console.log(`Find the server at: http://localhost:${app.get("port")}/`); // esli
 // });
 
 const temporaryStorage = {
-    pushups: {description: 'pushing up and down from the ground'}
+    pushups: {description: 'pushing up and down from the ground'},
+    situps: {description: 'crunching abs'},
+    pullups: {description: 'pulling yourself up from a bar'}
 }
 
-app.get('/exercises', (req, res) => {
-    res.json(temporaryStorage.pushups)
+app.get('/exercises/:exerciseSlug', urlencodedParser, (req, res) => {
+    res.json(temporaryStorage[req.params.exerciseSlug])
 })
 //
