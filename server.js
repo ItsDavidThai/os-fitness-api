@@ -21,8 +21,11 @@ console.log(`Find the server at: http://localhost:${app.get("port")}/`); // esli
 // console.log(`Find the server at: http://localhost:${app.get("api-port")}/`); // eslint-disable-line no-console
 // });
 
+const temporaryStorage = {
+    pushups: {description: 'pushing up and down from the ground'}
+}
 
-app.get('/', (req, res) => {
-    res.json('hello')
+app.get('/exercises', (req, res) => {
+    res.json(temporaryStorage.pushups)
 })
-
+//
